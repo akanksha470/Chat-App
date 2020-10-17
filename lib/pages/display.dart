@@ -46,7 +46,9 @@ class _HomeState extends State<Home> {
                                   borderRadius: BorderRadius.circular(40),
                                   color: Colors.indigoAccent),
                               child: Center(
-                                child: Text(snapshot
+                                child: snapshot.data.documents[index].data["chatRoomId"].toString() == "${Constants.myName}\_${Constants.myName}" ?
+                                    Text(Constants.myName.substring(0, 1).toUpperCase(), style: TextStyle(color: Colors.white, fontSize: 24)) :
+                                Text(snapshot
                                       .data.documents[index].data["chatRoomId"].toString().replaceAll(Constants.myName, "")
                                       .replaceAll("_", "").substring(0, 1).toUpperCase(),
                                   style: TextStyle(color: Colors.white, fontSize: 24),
@@ -54,7 +56,9 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                           ),
-                          title: Text(
+                          title: snapshot.data.documents[index].data["chatRoomId"].toString() == "${Constants.myName}\_${Constants.myName}" ?
+                          Text(Constants.myName, style: TextStyle(color: Colors.white)) :
+                          Text(
                             snapshot.data.documents[index].data["chatRoomId"].toString().replaceAll(Constants.myName, "")
                                 .replaceAll("_", ""),
                             style: TextStyle(color: Colors.white),
@@ -188,11 +192,6 @@ class _HomeState extends State<Home> {
           ),
           title: Text("Chat"),
           actions: <Widget>[
-//            IconButton(
-//              icon: Icon(Icons.exit_to_app, color: Colors.white,),
-//              tooltip: "Log Out",
-//              onPressed: () => showLogoutDialog(context)
-//            )
           popUpMenu()
           ],
       ),
