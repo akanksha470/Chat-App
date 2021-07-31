@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 class SignInPage extends StatefulWidget {
@@ -41,7 +42,7 @@ class _SignInPageState extends State<SignInPage> {
         await localData.saveUserName(userInfoSnapshot.documents[0].data["userName"]);
         await localData.saveUserEmail(email.text.trim());
         await localData.saveUserLoggedIn(true);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()));
       }on PlatformException catch(e){
         print("errorrrrr ${e.toString()}");
         setState(() {
@@ -49,18 +50,16 @@ class _SignInPageState extends State<SignInPage> {
         });
         email.text = "";
         pwd.text = "";
-        snackbar = SnackBar(
-          backgroundColor: Colors.red,
-          content: Row(
-            children: <Widget>[
-              Icon(Icons.info_outline),
-              SizedBox(width: 10,),
-              Text("Check your username and password"),
-            ],
-          ),
-        );
-        Scaffold.of(context).showSnackBar(snackbar);
 
+        Fluttertoast.showToast(
+            msg: e.toString(),
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.grey,
+            textColor: Colors.white,
+            fontSize: 16.0
+        );
       }
     }
   }
