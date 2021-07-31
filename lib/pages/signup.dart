@@ -69,11 +69,11 @@ class _SignUpPageState extends State<SignUpPage> {
         });
         if(e.code == 'email-already-in-use'){
           print("Errorrrrrrr ${e.code}");
-          snackbar = SnackBar(
-            backgroundColor: Colors.blue,
-            content: Text("The email is already in use by other account"),
-          );
-          Scaffold.of(context).showSnackBar(snackbar);
+//          snackbar = SnackBar(
+//            backgroundColor: Colors.blue,
+//            content: Text("The email is already in use by other account"),
+//          );
+//          Scaffold.of(context).showSnackBar(snackbar);
         }
 
         else if(e.code == 'weak-password'){
