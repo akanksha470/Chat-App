@@ -192,11 +192,6 @@ class _HomeState extends State<Home> {
           ),
           title: Text("Chat"),
           actions: <Widget>[
-//            IconButton(
-//              icon: Icon(Icons.exit_to_app, color: Colors.white,),
-//              tooltip: "Log Out",
-//              onPressed: () => showLogoutDialog(context)
-//            )
           popUpMenu()
           ],
       ),
