@@ -115,7 +115,6 @@ class _ChatScreenState extends State<ChatScreen> {
             Container(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-//                color: Colors.redAccent,
                   padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                   child: Row(
                     children: <Widget>[
@@ -145,13 +144,6 @@ class _ChatScreenState extends State<ChatScreen> {
                           onPressed: () => sendMessage(),
                         ),
                       ),
-//                      Padding(
-//                        padding: EdgeInsets.symmetric(horizontal: 12),
-//                        child: FloatingActionButton(
-//                          child: Icon(Icons.mic),
-//                          onPressed: () => sendMessage(),
-//                        ),
-//                      ),
                     ],
                   ),
                 ))
